@@ -18,13 +18,13 @@ class ArticlesController < ApplicationController
     
     def create
       # render plain: params[:article].inspect
-      debugger
+      #debugger
       @article = Article.new(article_params)
       @article.user = current_user
        #@article.save
       # redirect_to articles_path(@article)
       if @article.save
-          flash[:success] = 'Article was successfully created'
+          flash[:success] = 'Arctivity was successfully created'
           redirect_to article_path(@article)
       else
           render 'new'
@@ -39,14 +39,14 @@ class ArticlesController < ApplicationController
     
     def destroy
        @article.destroy
-       flash[:danger] = "Article was successfully deleted"
+       flash[:danger] = "Activity was successfully deleted"
        redirect_to articles_path
     end
     
     def update
       
         if @article.update(article_params)
-            flash[:success] = "Article was successfully updated"
+            flash[:success] = "Activity was successfully updated"
             redirect_to article_path(@article)
         else
             render "edit"
@@ -64,7 +64,7 @@ class ArticlesController < ApplicationController
         
         def require_same_user
             if current_user != @article.user and !current_user.admin?
-                flash[:danger] = "You can only edit or delete your own articles"
+                flash[:danger] = "You can only edit or delete your own activities"
                 redirect_to root_path
             end
         end
