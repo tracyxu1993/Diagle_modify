@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'pg', '~> 0.11'
 gem 'rails', '4.2.6' 
 # Use sqlite3 as the database for Active Record
 gem 'bcrypt', '~> 3.1.7'
@@ -54,6 +55,6 @@ end
 #end
 
 group :production do
-  gem 'pg', '~> 0.11'
+#  gem 'pg'
   gem 'rails_12factor'
 end
